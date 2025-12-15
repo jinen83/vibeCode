@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DronaHQ Vibe Code: The Dogfooding Experiment</title>
+    <title>DronaHQ: Vibe Code Meets Low Code</title>
     
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
@@ -17,13 +17,15 @@
             --code-font: 'Courier New', Courier, monospace;
             --success-color: #22c55e;
             --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --purple-glow: #a855f7;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.8;
             margin: 0;
             padding: 0;
         }
@@ -31,7 +33,7 @@
         /* --- HERO SECTION --- */
         header.hero {
             position: relative;
-            min-height: 60vh; 
+            min-height: 70vh; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -48,7 +50,7 @@
             background-image: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.98)), url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format&fit=crop');
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format&fit=crop');
             z-index: 0;
         }
 
@@ -60,7 +62,7 @@
             flex-direction: column;
             align-items: center;
             gap: 1.5rem;
-            max-width: 800px;
+            max-width: 950px;
         }
 
         .logo {
@@ -69,11 +71,11 @@
         }
 
         header h1 {
-            font-size: 3.5rem;
+            font-size: 4rem; 
             font-weight: 800;
             margin-bottom: 0.5rem;
             margin-top: 1rem;
-            line-height: 1.2;
+            line-height: 1.1;
             background: linear-gradient(90deg, #38bdf8, #818cf8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -81,8 +83,28 @@
 
         header .subtitle {
             color: #e2e8f0;
-            font-size: 1.4rem;
+            font-size: 1.8rem; 
             font-weight: 300;
+            max-width: 800px;
+            line-height: 1.4;
+        }
+        
+        .hero-highlight {
+            color: #fff;
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .hero-tag {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
         }
 
         /* --- CONTENT STYLES --- */
@@ -93,25 +115,38 @@
         }
 
         section {
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
         }
 
         h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--accent-color);
             margin-top: 2rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         h3 {
             font-size: 1.4rem;
             color: #fff;
-            margin-top: 1rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
         }
 
         p {
             margin-bottom: 1.5rem;
+            font-size: 1.15rem;
+            color: #cbd5e1;
+        }
+
+        li {
+            margin-bottom: 1.5rem; 
             font-size: 1.1rem;
+            color: #cbd5e1;
+        }
+
+        strong {
+            color: #fff;
+            font-weight: 600;
         }
 
         .callout {
@@ -122,44 +157,97 @@
             margin: 2rem 0;
         }
 
-        /* --- FEATURE GRID --- */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+        /* --- NARRATIVE SECTION (The Story Format) --- */
+        .narrative-content {
+            border-left: 1px solid #334155;
+            padding-left: 2rem;
+            margin-left: 1rem;
         }
 
-        .feature-card {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid #334155;
-            padding: 1.5rem;
+        .story-image-container {
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+
+        .story-image {
+            max-width: 100%;
             border-radius: 12px;
-            transition: transform 0.2s;
+            border: 1px solid #475569;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+        
+        .story-image:hover {
+            transform: scale(1.01);
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
-        }
-
-        .feature-icon {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+        .caption {
             display: block;
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            font-style: italic;
         }
 
-        .feature-card h4 {
-            margin: 0 0 0.5rem 0;
+        blockquote {
+            border-left: 4px solid var(--purple-glow);
+            margin: 2rem 0;
+            font-style: italic;
             color: #fff;
             font-size: 1.2rem;
+            background: linear-gradient(90deg, rgba(168, 85, 247, 0.1), transparent);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        hr.divider {
+            border: 0; 
+            border-top: 1px dashed #475569; 
+            margin: 3rem 0;
         }
 
-        .feature-card p {
-            font-size: 0.95rem;
+        /* --- HYPOTHESIS/FOUNDER NOTE STYLE --- */
+        .hypothesis-block {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: #e2e8f0;
+        }
+
+        .hypothesis-block strong {
+            color: var(--accent-color);
+        }
+
+        /* --- PERSONA CARD --- */
+        .persona-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            border: 1px solid var(--purple-glow);
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
+        }
+
+        .persona-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .persona-icon {
+            font-size: 2rem;
+            background: rgba(168, 85, 247, 0.2);
+            padding: 0.8rem;
+            border-radius: 50%;
+            line-height: 1;
+        }
+
+        .persona-quote {
+            font-style: italic;
             color: var(--secondary-text);
-            margin-bottom: 0;
-            line-height: 1.5;
+            border-left: 3px solid var(--purple-glow);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
         }
 
         /* --- EPISODE STYLES --- */
@@ -216,19 +304,6 @@
             padding: 1.5rem;
         }
 
-        .video-placeholder {
-            width: 100%;
-            height: 250px;
-            background: #0f172a;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            border: 2px dashed #334155;
-            color: var(--secondary-text);
-        }
-
         .video-wrapper {
             position: relative;
             padding-bottom: 62.5%; 
@@ -244,18 +319,17 @@
             top: 0; left: 0; width: 100%; height: 100%;
         }
 
-        .sim-wrapper {
+        .video-placeholder {
             width: 100%;
-            height: 500px;
-            border: 1px solid #334155;
-            border-radius: 12px;
-            margin: 2rem 0;
-            overflow: hidden;
-            background: #fff;
-        }
-        
-        .sim-wrapper iframe {
-            width: 100%; height: 100%; border: none;
+            height: 250px;
+            background: #0f172a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            border: 2px dashed #334155;
+            color: var(--secondary-text);
         }
 
         /* Terminal Animation */
@@ -286,13 +360,7 @@
 
         @keyframes blink { 50% { opacity: 0; } }
 
-        footer {
-            text-align: center; padding: 3rem;
-            color: var(--secondary-text); font-size: 0.9rem;
-            border-top: 1px solid #334155; margin-top: 4rem;
-        }
-
-        /* --- BETA FORM STYLES --- */
+        /* Beta Form */
         .beta-form-container {
             margin-top: 4rem;
             text-align: center;
@@ -308,12 +376,12 @@
             gap: 1rem;
             max-width: 400px;
             margin: 1.5rem auto 0;
-            align-items: center; /* Center the Turnstile widget */
+            align-items: center; 
         }
 
         .beta-form input {
             width: 100%;
-            box-sizing: border-box; /* Ensures padding doesn't break width */
+            box-sizing: border-box; 
             padding: 0.8rem 1rem;
             border-radius: 8px;
             border: 1px solid #334155;
@@ -339,7 +407,7 @@
             cursor: pointer;
             font-size: 1rem;
             transition: transform 0.2s, opacity 0.2s;
-            width: 100%; /* Match inputs */
+            width: 100%; 
         }
 
         .cta-button:hover { transform: translateY(-2px); opacity: 0.9; }
@@ -350,9 +418,20 @@
             transform: none;
         }
 
-        /* Margin for the Captcha */
         .cf-turnstile {
             margin: 0.5rem 0;
+        }
+
+        footer {
+            text-align: center; padding: 3rem;
+            color: var(--secondary-text); font-size: 0.9rem;
+            border-top: 1px solid #334155; margin-top: 4rem;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
         }
 
     </style>
@@ -361,10 +440,12 @@
 
     <header class="hero">
         <div class="hero-content">
-            <img src="https://www.dronahq.com/wp-content/uploads/2023/02/logoWhite.png" alt="DronaHQ Logo" class="logo">
+            <span class="hero-tag">New Launch</span>
+            <img src="https://www.dronahq.com/wp-content/uploads/2023/02/logoWhite.png" alt="DronaHQ Logo" class="logo" style="margin-top: 1.5rem;">
+            
             <div>
-                <h1>The Death of the Backlog</h1>
-                <p class="subtitle">From React to Low-Code to Vibe Coding: Launching the DronaHQ Vibe Code Platform.</p>
+                <h1>Vibe Code meets Low Code.</h1>
+                <p class="subtitle">Infinite Creative UI.<br>Without Endless Prompting.</p>
             </div>
         </div>
     </header>
@@ -373,33 +454,77 @@
         <section>
             <p>If you look at the software landscape of any major company, it generally breaks down into three buckets:</p>
             <ol>
-                <li><strong>Core Business Apps:</strong> These run the bank. Think Loan Origination Systems (LOS) or SAP. You don't build these; you buy COTS.</li>
-                <li><strong>Customer Facing Apps:</strong> The shiny mobile apps and websites your customers see.</li>
-                <li><strong>Internal Software & Tools:</strong> The messy, custom, absolutely critical glue that holds operations together.</li>
+                <li>
+                    <strong>Core Business Apps:</strong> The "Center of Gravity." These transactional systems run the primary value-creation operations—money, goods, or services moving through the business. 
+                    <br><span style="color: var(--secondary-text); font-size: 0.95rem;">(e.g., Core Banking Systems, Manufacturing ERPs, or proprietary Matching Engines in B2C tech).</span>
+                    <br>Tech-first companies usually <strong>build</strong> these (rather than buying COTS) because they encode the competitive moat. As a result, they are the largest sink of engineering time.
+                </li>
+                <li>
+                    <strong>Customer Facing Apps:</strong> The "Revenue Front-End." These are the shiny web and mobile apps where the actual transactions trigger. This is where your GMV is clocked and where your customer places their next order.
+                </li>
+                <li>
+                    <strong>Internal Software & Tools:</strong> The "Operational Glue." The messy, custom, absolutely critical tools that support the first two buckets.
+                </li>
             </ol>
-            <p>The first two get all the budget. The third one? That's where the problem lives.</p>
+            <p>The first two buckets consume all the engineering budget. The third one? That's where the problem lives.</p>
         </section>
 
         <section>
-            <h2>The Engineering Bandwidth Problem</h2>
-            <p>In fast-growing consumer or B2B tech companies, internal software is almost always home-grown. You need a dashboard for support, a reconciliation tool for finance, or a custom CRM workflow.</p>
-            <div class="callout">
-                The reality? Engineering bandwidth is scarce. You want zero—or very minuscule—effort spent on internal apps, yet they are vital to running the business.
+            <h2>Who is this for?</h2>
+            <div class="persona-card">
+                <div class="persona-header">
+                    <span class="persona-icon">🪄</span>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.4rem; color: #fff;">The Time-Pressed Creator</h3>
+                        <span style="color: #a855f7; font-size: 0.9rem; font-weight: bold;">(PMs, Ops Leads, Founders)</span>
+                    </div>
+                </div>
+                
+                <p>We built this for the person who doesn't have time to be a developer—even a "citizen" developer.</p>
+                <p>You know exactly what you want: <em>"A dashboard to approve loans over $50k."</em> But you don't have time to:</p>
+                <ul style="color: var(--secondary-text); margin-bottom: 1.5rem;">
+                    <li>Learn React or Python.</li>
+                    <li>Learn complex "No-Code" tools (dragging tables, configuring properties, debugging bindings).</li>
+                    <li><strong>Worst of all: Prompt Engineering.</strong> You don't want to type "Fix the button" 10 times to get it right.</li>
+                </ul>
+                <div class="persona-quote">
+                    "I just want magical software produced with a magic wand. I want to speak the prompt once, and see the app work."
+                </div>
             </div>
         </section>
 
         <section>
-            <h2>The Evolution: From Code to Vibe</h2>
-            <p>Because engineers were too busy for internal tools, the market shifted.</p>
+            <h2>The "Why": Notes from the Field</h2>
+            <p>I didn't start this product journey with a clear solution in mind. It started by observing how smart people were failing with the new wave of AI tools. I noticed three distinct "Traps" that were stopping Vibe Coding from being production-ready.</p>
             
-            <h3>Phase 1: Low Code</h3>
-            <p>Low-code tools entered the chat. They promised to reduce the time-to-ship by a 10th. And they worked! It was visual, intuitive, and fast.</p>
-            <div class="sim-wrapper">
-                <iframe src="https://jinen83.github.io/dragdropSimul/" title="Drag and Drop Simulation"></iframe>
-            </div>
+            <div class="narrative-content">
+                
+                <h3>1. The Wrong Tool Trap</h3>
+                <p>It started with a customer of mine—a Product Head at a major Ad-Tech firm. He decided to go rogue and build a mission-critical internal tool using <strong>Cursor</strong>.</p>
+                <p>Now, Cursor is an incredible tool, but it is built for <em>developers</em>. This Product Head was not a coder. In about 15 days, he managed to vibe a complex video generation tool. It was impressive.</p>
+                <p>But then he hit the wall. Maintenance. Adding a simple toast message took him 15 minutes of prompting. He was instructing the AI to write <code>README.md</code> files just to remember what the code was doing. The app eventually collapsed under its own weight, and he had to hire engineers to rewrite it from scratch.</p>
 
-            <h3>Phase 2: Vibe Coding (The Now)</h3>
-            <p>Then came the AI wave. The time to learn the tool shrunk to <strong>zero</strong>. You don't drag-and-drop; you just express what you need.</p>
+                <h3>2. The "Toy App" Trap</h3>
+                <p>This wasn't just happening with developer tools. I recently caught up with <strong>Rory Wilding, COO of Supabase</strong>, to discuss the state of AI. We talked about the surge of "UI Hacking" tools (like Lovable) that integrate with backends.</p>
+                
+                <div class="story-image-container">
+                    <img src="https://lh3.googleusercontent.com/d/1fdTJWEA9v6QU256CBS8sTORYx14nkt1S" alt="Me with Rory Wilding, COO of Supabase" class="story-image">
+                    <span class="caption">Discussing the future of AI tools with Rory Wilding, COO of Supabase.</span>
+                </div>
+
+                <p>Rory pointed out a dangerous trend: these tools have birthed a wave of <strong>"fly-by-night operators."</strong> People spin up visually stunning apps in minutes, but they have zero understanding of the underlying architecture. </p>
+                
+                <blockquote>
+                    "They create 'sugar-rush' software—it looks great in a demo but lacks the structural integrity to survive in production."
+                </blockquote>
+
+                <h3>3. The Throwaway Trap</h3>
+                <p>Finally, I noticed a pattern with Product Managers using Vibe tools. They would create a perfect-looking interface and show it to stakeholders. Everyone loved it.</p>
+                <p>But when it came time to deploy, they couldn't. The code was unmaintainable. They would hand the "prototype" to an agency and say, <em>"Okay, now build this for real."</em></p>
+                <p><strong>The Vibe tool didn't build software; it just built a really expensive wireframe.</strong></p>
+
+            </div>
+            
             <div class="terminal-container">
                 <div class="terminal-header">
                     <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
@@ -411,41 +536,26 @@
         </section>
 
         <section>
-            <h2>The Missing Piece: Vibe + Low Code</h2>
-            <p>Pure AI generation (Cursor, Replit) is amazing for starting, but hard for maintaining. Pure Low Code is great for structure, but can be slow to start.</p>
-            <p><strong>We are doing something different.</strong> We are adding a "Low Code Flavor" on top of Vibe Coding.</p>
-
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">⚡</span>
-                    <h4>The "Little Things"</h4>
-                    <p>AI is great at logic, but annoying for tweaks. Want a simple toast message? Or call a REST API on click? Don't write a prompt—just drag a block. It's a minute's job.</p>
-                </div>
+            <h2>My Hypothesis: Convergence</h2>
+            
+            <div class="hypothesis-block">
+                <p>These stories kept me up at night. They highlighted a fundamental gap: Vibe Coding (Creative) and Engineering (Deterministic) seemed to be at odds. You could have speed with chaos, or stability with slowness.</p>
                 
-                <div class="feature-card">
-                    <span class="feature-icon">🔌</span>
-                    <h4>Seamless Data Binding</h4>
-                    <p>Connecting a frontend to a database shouldn't require writing 50 lines of fetch logic. We handle CRUD operations visually and seamlessly.</p>
-                </div>
-
-                <div class="feature-card">
-                    <span class="feature-icon">🛡️</span>
-                    <h4>Secure API Plumbing</h4>
-                    <p>Don't paste API keys into your chat window. We provide a secure vault to manage integrations and APIs, ensuring your plumbing is enterprise-grade.</p>
-                </div>
-
-                <div class="feature-card">
-                    <span class="feature-icon">🏢</span>
-                    <h4>Batteries Included</h4>
-                    <p>User Management, Role-Based Access Control (RBAC), and Audit Logs come integrated. You don't need to "vibe" an auth system from scratch; it's just there.</p>
-                </div>
+                <p>I asked myself: <em>Why are we forcing people to choose?</em></p>
+                
+                <p>My hypothesis is that the future isn't one or the other. It's a hybrid engine. We need to let AI do what it is undeniably the best at: <strong>Visual Creation.</strong> Let the AI vibe the React dashboards, the Admin panels, and the layouts. Let it be the pixel-perfect artist.</p>
+                
+                <p>But when it comes to the logic—the stuff that breaks, the stuff Rory warned about—we shouldn't be prompting. We should be snapping blocks together. If you need a toast message, don't ask an LLM to rewrite 500 lines of code. <strong>Drag a "Toast" block.</strong> It works every time. It's boring, reliable, and secure.</p>
+                
+                <p>This is what we are building at DronaHQ. We are converging the two worlds. <strong>Vibe for the eyes, Low Code for the logic.</strong> Infinite freedom on the front, enterprise guardrails on the back.</p>
+                
+                <p>I don't claim to have solved every problem in software development, but I truly believe this convergence is the missing link for internal tools.</p>
             </div>
         </section>
 
         <section>
             <h2>The Dogfooding Experiment: Building a CRM</h2>
-            <p>I am dogfooding the DronaHQ Vibe tool myself. To test this out, I am going to be making a CRM application.</p>
-            <p>I already have a Database and APIs available. The goal here is to test <strong>vibe coding the frontend</strong>. I'm not sure how successful I will be at doing this in one go, but I'm recording the process—warts and all.</p>
+            <p>I am testing this hypothesis myself. I am building a CRM application live. I have the DB and APIs; the goal is to test <strong>vibe coding the frontend</strong> and snapping it to the platform.</p>
             
             <div class="episode-container">
                 <div class="episode-card">
@@ -497,12 +607,12 @@
     </article>
 
     <footer>
-        <p>&copy; 2024 DronaHQ. All rights reserved.</p>
+        <p>© 2024 DronaHQ. All rights reserved.</p>
     </footer>
 
     <script>
         // --- 1. Typewriter Animation ---
-        const textToType = "DronaHQ, build me a dashboard for loan approvals connected to our postgres db...";
+        const textToType = "DronaHQ, vibe me a React dashboard... then snap it to my postgres logic blocks.";
         const typeWriterElement = document.getElementById('typewriter');
         let i = 0;
 
@@ -530,7 +640,7 @@
         const submitBtn = form.querySelector('button[type="submit"]');
 
         form.addEventListener('submit', function(e) {
-            e.preventDefault(); // Stop standard reload
+            e.preventDefault(); 
             
             // Get values
             const businessNameInput = form.querySelector('input[name="businessName"]');
@@ -539,10 +649,8 @@
             const businessName = businessNameInput.value.trim();
             const email = emailInput.value.trim();
             
-            // Strict Validation Regex for Email
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-            // CHECK 1: Inputs
             if (!businessName) {
                 alert("Please enter your Business Name.");
                 return;
@@ -553,20 +661,19 @@
                 return;
             }
 
-            // CHECK 2: Captcha
-            // turnstile.getResponse() returns the token if solved, or undefined if not.
+            // CHECK: Captcha Token
             const token = turnstile.getResponse();
             if (!token) {
                 alert("Please complete the security check.");
                 return;
             }
 
-            // UI Loading State
+            // Loading State
             const originalBtnText = submitBtn.innerText;
             submitBtn.innerText = "Joining...";
             submitBtn.disabled = true;
 
-            // Post to DronaHQ Automation Webhook
+            // Post to DronaHQ
             fetch('https://automations.dronahq.com/webhook/693fcf23b6619f7471dd8876', {
                 method: 'POST',
                 headers: {
@@ -575,13 +682,11 @@
                 body: JSON.stringify({
                     business_name: businessName,
                     email: email,
-                    // Optionally send the captcha token if your webhook wants to verify it server-side
                     captcha_token: token 
                 })
             })
             .then(response => {
                 if (response.ok) {
-                    // Success UI Replacement
                     form.innerHTML = `
                         <div style="padding: 2rem 0;">
                             <span style="font-size: 2rem;">🎉</span>
@@ -596,10 +701,8 @@
             .catch(error => {
                 console.error('Error:', error);
                 alert("Something went wrong joining the waitlist. Please try again later.");
-                // Reset Button
                 submitBtn.innerText = originalBtnText;
                 submitBtn.disabled = false;
-                // Optional: Reset Captcha
                 turnstile.reset();
             });
         });
