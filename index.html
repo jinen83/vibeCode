@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DronaHQ: Vibe Code Meets Low Code</title>
+    <title>DronaHQ: The AI Machine for Internal Software</title>
     
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
@@ -33,7 +33,7 @@
         /* --- HERO SECTION --- */
         header.hero {
             position: relative;
-            min-height: 70vh; 
+            min-height: 75vh; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -89,24 +89,6 @@
             line-height: 1.4;
         }
         
-        .hero-highlight {
-            color: #fff;
-            font-weight: 600;
-            border-bottom: 2px solid var(--accent-color);
-        }
-
-        .hero-tag {
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent-color);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
-        }
-
         /* --- CONTENT STYLES --- */
         article {
             max-width: 800px;
@@ -149,15 +131,40 @@
             font-weight: 600;
         }
 
-        .callout {
-            background-color: var(--card-bg);
-            border-left: 4px solid var(--accent-color);
-            padding: 1.5rem;
-            border-radius: 0 8px 8px 0;
+        /* --- ENGINE ROOM STYLES --- */
+        .engine-room {
+            border: 1px solid #334155;
+            background: rgba(30, 41, 59, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
             margin: 2rem 0;
         }
 
-        /* --- NARRATIVE SECTION (The Story Format) --- */
+        .layer-card {
+            background: #1e293b;
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .layer-title {
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .layer-mechanic {
+            font-size: 0.95rem;
+            color: var(--secondary-text);
+            font-family: var(--code-font);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* --- NARRATIVE SECTION --- */
         .narrative-content {
             border-left: 1px solid #334155;
             padding-left: 2rem;
@@ -206,7 +213,7 @@
             margin: 3rem 0;
         }
 
-        /* --- HYPOTHESIS/FOUNDER NOTE STYLE --- */
+        /* --- HYPOTHESIS BLOCK --- */
         .hypothesis-block {
             font-size: 1.2rem;
             line-height: 1.9;
@@ -217,37 +224,51 @@
             color: var(--accent-color);
         }
 
-        /* --- PERSONA CARD --- */
-        .persona-card {
-            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
-            border: 1px solid var(--purple-glow);
-            padding: 2rem;
-            border-radius: 16px;
-            margin: 2rem 0;
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
-        }
-
-        .persona-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .persona-icon {
-            font-size: 2rem;
-            background: rgba(168, 85, 247, 0.2);
-            padding: 0.8rem;
-            border-radius: 50%;
-            line-height: 1;
-        }
-
-        .persona-quote {
-            font-style: italic;
-            color: var(--secondary-text);
-            border-left: 3px solid var(--purple-glow);
-            padding-left: 1rem;
+        /* --- IFRAME WRAPPER --- */
+        .sim-wrapper {
+            width: 100%;
+            height: 400px;
+            border: 1px solid #334155;
+            border-radius: 8px;
             margin: 1.5rem 0;
+            overflow: hidden;
+            background: #fff;
+        }
+        
+        .sim-wrapper iframe {
+            width: 100%; height: 100%; border: none;
+        }
+
+        /* --- FEATURE GRID --- */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid #334155;
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: transform 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .feature-icon {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .highlight-text {
+            color: var(--accent-color);
+            font-weight: bold;
         }
 
         /* --- EPISODE STYLES --- */
@@ -430,7 +451,7 @@
 
         @media (max-width: 600px) {
             header h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
         }
 
@@ -444,8 +465,8 @@
             <img src="https://www.dronahq.com/wp-content/uploads/2023/02/logoWhite.png" alt="DronaHQ Logo" class="logo" style="margin-top: 1.5rem;">
             
             <div>
-                <h1>Vibe Code meets Low Code.</h1>
-                <p class="subtitle">Infinite Creative UI.<br>Without Endless Prompting.</p>
+                <h1>The AI Machine for Building Internal Software.</h1>
+                <p class="subtitle">Vibe Code the Interface. <br>Low Code the Logic.</p>
             </div>
         </div>
     </header>
@@ -455,107 +476,138 @@
             <p>If you look at the software landscape of any major company, it generally breaks down into three buckets:</p>
             <ol>
                 <li>
-                    <strong>Core Business Apps:</strong> The "Center of Gravity." These transactional systems run the primary value-creation operations—money, goods, or services moving through the business. 
-                    <br><span style="color: var(--secondary-text); font-size: 0.95rem;">(e.g., Core Banking Systems, Manufacturing ERPs, or proprietary Matching Engines in B2C tech).</span>
-                    <br>Tech-first companies usually <strong>build</strong> these (rather than buying COTS) because they encode the competitive moat. As a result, they are the largest sink of engineering time.
+                    <strong>Core Business Apps:</strong> The "Center of Gravity" systems (Core Banking, ERPs). The massive engineering moats.
                 </li>
                 <li>
-                    <strong>Customer Facing Apps:</strong> The "Revenue Front-End." These are the shiny web and mobile apps where the actual transactions trigger. This is where your GMV is clocked and where your customer places their next order.
+                    <strong>Customer Facing Apps:</strong> The revenue generators (eCommerce, Mobile Apps) where GMV happens.
                 </li>
                 <li>
-                    <strong>Internal Software & Tools:</strong> The "Operational Glue." The messy, custom, absolutely critical tools that support the first two buckets.
+                    <strong>Internal Software & Tools:</strong> The operational glue.
                 </li>
             </ol>
-            <p>The first two buckets consume all the engineering budget. The third one? That's where the problem lives.</p>
+            <p>Let's zoom in on that third bucket: <strong>Internal Tools.</strong></p>
         </section>
 
         <section>
-            <h2>Who is this for?</h2>
-            <div class="persona-card">
-                <div class="persona-header">
-                    <span class="persona-icon">🪄</span>
-                    <div>
-                        <h3 style="margin: 0; font-size: 1.4rem; color: #fff;">The Time-Pressed Creator</h3>
-                        <span style="color: #a855f7; font-size: 0.9rem; font-weight: bold;">(PMs, Ops Leads, Founders)</span>
+            <h2>The Internal Tools Dilemma</h2>
+            <p>Historically, you had three choices to build these tools:</p>
+            <ol>
+                <li><strong>Own Engineering (Traditional Code):</strong> The gold standard. But engineering bandwidth is expensive and scarce.</li>
+                <li><strong>The Agency Route:</strong> Outsourced, slow, and results in a "black box" you can't easily maintain.</li>
+                <li><strong>The Low Code / No Code Route:</strong> Tools like DronaHQ (or our competitors). This was a breakthrough for <strong>semi-skilled tech people</strong>—Technical Product Managers, Backend Engineers avoiding frontend, or Data Analysts. It empowered them to build tools internally with speed.</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>The Low Code Engine Room</h2>
+            <p>To understand why we needed a revolution, we first have to look at the machine that has powered internal tools for the last decade. It relied on three distinct layers.</p>
+
+            <div class="engine-room">
+                <div class="layer-card">
+                    <span class="layer-title">1. UI Building: The "Grid Prison"</span>
+                    <span class="layer-mechanic">Mechanic: Drag & Drop Config</span>
+                    <p style="margin-bottom:0; font-size:1rem;">The promise was "Don't write HTML/CSS." You are given a canvas and Lego blocks (Tables, Inputs). It's fast, but you are trapped in the grid.</p>
+                    
+                    <div class="sim-wrapper">
+                        
+                        <iframe src="https://jinen83.github.io/dragdropSimul/" title="Drag and Drop Simulation"></iframe>
                     </div>
                 </div>
-                
-                <p>We built this for the person who doesn't have time to be a developer—even a "citizen" developer.</p>
-                <p>You know exactly what you want: <em>"A dashboard to approve loans over $50k."</em> But you don't have time to:</p>
-                <ul style="color: var(--secondary-text); margin-bottom: 1.5rem;">
-                    <li>Learn React or Python.</li>
-                    <li>Learn complex "No-Code" tools (dragging tables, configuring properties, debugging bindings).</li>
-                    <li><strong>Worst of all: Prompt Engineering.</strong> You don't want to type "Fix the button" 10 times to get it right.</li>
-                </ul>
-                <div class="persona-quote">
-                    "I just want magical software produced with a magic wand. I want to speak the prompt once, and see the app work."
+
+                <div class="layer-card">
+                    <span class="layer-title">2. Frontend Logic: The "Flow" Builders</span>
+                    <span class="layer-mechanic">Mechanic: Visual Flowcharts</span>
+                    <p style="margin-bottom:0; font-size:1rem;">Business logic turned into a flowchart. Drag blocks: `Call API` → `If Success` → `Show Toast`. This made logic deterministic and debuggable by non-engineers.</p>
+                </div>
+
+                <div class="layer-card">
+                    <span class="layer-title">3. The Connector Layer: The Secure Tunnel</span>
+                    <span class="layer-mechanic">Mechanic: Secure Proxy</span>
+                    <p style="margin-bottom:0; font-size:1rem;">The unsung hero. It "air-gaps" your frontend from your backend. No exposed credentials. The platform handles the handshake securely.</p>
                 </div>
             </div>
+
+            <p>This stack worked. It let businesses build apps <strong>10x faster</strong>. But there was always a catch: <strong>The UX Compromise.</strong> Everything looked "Enterprise-y"—functional, but rigid. You couldn't build a consumer-grade experience because the tool wouldn't let you.</p>
         </section>
 
         <section>
-            <h2>The "Why": Notes from the Field</h2>
-            <p>I didn't start this product journey with a clear solution in mind. It started by observing how smart people were failing with the new wave of AI tools. I noticed three distinct "Traps" that were stopping Vibe Coding from being production-ready.</p>
+            <h2>The Hidden Cost & The Vibe Explosion</h2>
+            <p>However, the Low Code route comes with a hidden cost: <strong>The Learning Curve.</strong></p>
+            <p>To achieve proficiency, you still need to learn the tool, understand the components, and master the logic blocks. Even for technical folks, learning a proprietary drag-and-drop syntax takes time.</p>
+            
+            <p>At this exact juncture (2025), <strong>Vibe Coding</strong> (tools like Cursor, Lovable) entered the market. They offered a seductive new promise: <strong>Build 50x Faster</strong>.</p>
+            <p><strong>Power users can now just "Vibe it up."</strong></p>
+            <p>You don't drag-and-drop; you just speak. The need to learn the tool vanishes. You prompt "Make me a dashboard that looks like a spaceship," and it generates raw, beautiful React code.</p>
+        </section>
+
+        <section>
+            <h2>The Reality Check: Observations from the Field</h2>
+            <p>We watched this revolution with excitement. It’s an incredible solution for generating UI. But as we deployed it in the real world, we started seeing friction points.</p>
             
             <div class="narrative-content">
                 
-                <h3>1. The Wrong Tool Trap</h3>
-                <p>It started with a customer of mine—a Product Head at a major Ad-Tech firm. He decided to go rogue and build a mission-critical internal tool using <strong>Cursor</strong>.</p>
-                <p>Now, Cursor is an incredible tool, but it is built for <em>developers</em>. This Product Head was not a coder. In about 15 days, he managed to vibe a complex video generation tool. It was impressive.</p>
-                <p>But then he hit the wall. Maintenance. Adding a simple toast message took him 15 minutes of prompting. He was instructing the AI to write <code>README.md</code> files just to remember what the code was doing. The app eventually collapsed under its own weight, and he had to hire engineers to rewrite it from scratch.</p>
+                <h3>Observation 1: The "Success & Friction" Paradox (Cursor)</h3>
+                <p>One of my customers, a Product Leader in Ad-Tech, achieved massive success with <strong>Cursor</strong>. He built a full-fledged V1 tool that let internal users generate AI videos. He did this in 15 days (60 hours of prompting) <strong>without ever looking at a single line of code</strong>.</p>
+                <p>He was overjoyed. The UX was incredible. But he pointed out subtle, growing pains:</p>
+                <ul>
+                    <li><strong>The Maintenance Ceiling:</strong> Beyond a certain point, adding a simple "Toast Message" took 15 minutes of back-and-forth prompting.</li>
+                    <li><strong>The Deterministic Gap:</strong> In Low Code, a Table Grid is battle-tested. Pagination, server-side search, and sorting <em>just work</em>. In Vibe Code, the output is non-deterministic. A re-prompt might break the sorting logic or mess up the pagination state, costing hours and tokens to fix what should be standard.</li>
+                    <li><strong>Complexity Drift:</strong> As he added newer features, the code became too complex for the AI to manage context effectively.</li>
+                    <li><strong>The Collapse:</strong> Eventually, the code started falling apart, and he had to hand it to engineers to rebuild from scratch.</li>
+                </ul>
+                <p><strong>The Hidden DevOps Friction:</strong><br>
+                Even when it worked, the experience felt broken for a non-tech team. He had to push code via pre-established <strong>Git pipelines</strong>. Access was restricted. He had to figure out Auth and RBAC workarounds. It was independence, but with a heavy tax.</p>
 
-                <h3>2. The "Toy App" Trap</h3>
-                <p>This wasn't just happening with developer tools. I recently caught up with <strong>Rory Wilding, COO of Supabase</strong>, to discuss the state of AI. We talked about the surge of "UI Hacking" tools (like Lovable) that integrate with backends.</p>
-                
+                <h3>Observation 2: The "Expensive Mockup" (Replit)</h3>
+                <p>Another customer used <strong>Replit</strong> to "vibe" a benefits portal. It looked perfect. But because the code wasn't secure or scalable, they handed it to an agency to code from scratch. The Vibe tool didn't build software; it just built a really expensive wireframe.</p>
+
+                <h3>Observation 3: The "General Purpose" Trap (Supabase Insight)</h3>
                 <div class="story-image-container">
+                    
                     <img src="https://lh3.googleusercontent.com/d/1fdTJWEA9v6QU256CBS8sTORYx14nkt1S" alt="Me with Rory Wilding, COO of Supabase" class="story-image">
-                    <span class="caption">Discussing the future of AI tools with Rory Wilding, COO of Supabase.</span>
+                    <span class="caption">With Rory Wilding, COO of Supabase</span>
                 </div>
+                <p>On a recent trip to Singapore, I met <strong>Rory Wilding, COO of Supabase</strong>. We discussed the spectrum of Vibe Coding tools like Lovable.</p>
+                <p>These generalized tools cater to everyone—from a kid building a game to an engineer building a landing page. Because they serve such a wide audience, they often miss the specific depth required for <strong>Internal Tools</strong>.</p>
+                <p>Rory noted the wave of "hobby" projects they create. They spin up fast but often lack the enterprise-grade structure (SSO, RBAC, Data Security) that business applications demand. <strong>DronaHQ V2 is designed to fix this specific gap.</strong></p>
 
-                <p>Rory pointed out a dangerous trend: these tools have birthed a wave of <strong>"fly-by-night operators."</strong> People spin up visually stunning apps in minutes, but they have zero understanding of the underlying architecture. </p>
-                
-                <blockquote>
-                    "They create 'sugar-rush' software—it looks great in a demo but lacks the structural integrity to survive in production."
-                </blockquote>
-
-                <h3>3. The Throwaway Trap</h3>
-                <p>Finally, I noticed a pattern with Product Managers using Vibe tools. They would create a perfect-looking interface and show it to stakeholders. Everyone loved it.</p>
-                <p>But when it came time to deploy, they couldn't. The code was unmaintainable. They would hand the "prototype" to an agency and say, <em>"Okay, now build this for real."</em></p>
-                <p><strong>The Vibe tool didn't build software; it just built a really expensive wireframe.</strong></p>
-
-            </div>
-            
-            <div class="terminal-container">
-                <div class="terminal-header">
-                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
-                </div>
-                <div>
-                    <span style="color: #38bdf8;">user@dronahq:~$</span> <span id="typewriter"></span><span class="cursor"></span>
-                </div>
             </div>
         </section>
 
         <section>
-            <h2>My Hypothesis: Convergence</h2>
+            <h2>The Mediocrity of "Low Code + AI" (Version 1)</h2>
+            <p>To be fair, we (and our competitors like Retool/ToolJet) tried to solve this. We launched our own "Vibe" versions (like Veda AI).</p>
+            <p>The strategy was: <em>"Use AI to configure our existing drag-and-drop components."</em></p>
+            <p><strong>I view this as a compromised middle ground—a mediocrity we couldn't accept.</strong></p>
+            <p>Why? Because as a Product Owner, I never went GA with it. It was a half-measure. It didn't solve the UX compromise; it just made it faster to build a boring UI. You were still trapped in the grid, just using voice commands instead of a mouse.</p>
+        </section>
+
+        <section>
+            <h2>The Solution: The Version 2 Machine</h2>
             
             <div class="hypothesis-block">
-                <p>These stories kept me up at night. They highlighted a fundamental gap: Vibe Coding (Creative) and Engineering (Deterministic) seemed to be at odds. You could have speed with chaos, or stability with slowness.</p>
+                <p>So now, we are launching the <strong>Version 2 Vibe Coding Tool</strong>. We decided to embrace the best of both worlds and fix the broken experience for our user persona: the non-engineer who just wants the tool to work.</p>
                 
-                <p>I asked myself: <em>Why are we forcing people to choose?</em></p>
+                <p><strong>1. Embrace the Vibe (UX Freedom):</strong><br>
+                We use the best parts of tools like Cursor/Replit. We let the AI write raw, beautiful React code for the interface. No widget constraints. If you can prompt it, you can render it.</p>
                 
-                <p>My hypothesis is that the future isn't one or the other. It's a hybrid engine. We need to let AI do what it is undeniably the best at: <strong>Visual Creation.</strong> Let the AI vibe the React dashboards, the Admin panels, and the layouts. Let it be the pixel-perfect artist.</p>
+                <p><strong>2. Retain the Magic Connector Layer:</strong><br>
+                We retain the <strong>Connector Layer</strong>—our "magic layer" for data. It effectively handles data interfaces for your frontend securely. No leaking credentials in your AI-generated React code.</p>
+
+                <p><strong>3. Hybrid Logic (No-Code Blocks):</strong><br>
+                We bring in elements of No-Code blocks on UI logic by enabling you to revert to the logic blocks like <strong>Toasts, Confetti, JS, or simply calling a REST API</strong> without needing continuous prompts. You snap a block, and it works every time.</p>
+
+                <p><strong>4. Fix the Broken Experience (Managed Runtime):</strong><br>
+                We solved the "Git Pipeline" nightmare. DronaHQ stitches the runtime directly into the platform. You don't need CLI commands or DevOps access. We handle the hosting, the environment, and the deployment.</p>
                 
-                <p>But when it comes to the logic—the stuff that breaks, the stuff Rory warned about—we shouldn't be prompting. We should be snapping blocks together. If you need a toast message, don't ask an LLM to rewrite 500 lines of code. <strong>Drag a "Toast" block.</strong> It works every time. It's boring, reliable, and secure.</p>
-                
-                <p>This is what we are building at DronaHQ. We are converging the two worlds. <strong>Vibe for the eyes, Low Code for the logic.</strong> Infinite freedom on the front, enterprise guardrails on the back.</p>
-                
-                <p>I don't claim to have solved every problem in software development, but I truly believe this convergence is the missing link for internal tools.</p>
+                <p>Just a <code>README.md</code> is good enough for you to understand what's happening. The machine handles the rest.</p>
             </div>
         </section>
 
         <section>
-            <h2>The Dogfooding Experiment: Building a CRM</h2>
-            <p>I am testing this hypothesis myself. I am building a CRM application live. I have the DB and APIs; the goal is to test <strong>vibe coding the frontend</strong> and snapping it to the platform.</p>
+            <h2>For the Curious Souls: Watch me Build LIVE</h2>
+            
+            <p>I am building a complex CRM application live. I’m doing it to see if we can truly combine the freedom of Vibe Coding with the reliability of our backend. If you are curious about how Vibe + Low Code meshes in reality, watch the journey.</p>
             
             <div class="episode-container">
                 <div class="episode-card">
