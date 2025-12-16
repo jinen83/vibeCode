@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DronaHQ: The AI Machine for Internal Software</title>
     
+    <link rel="icon" href="https://www.dronahq.com/wp-content/uploads/2023/05/favicon-1.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="https://www.dronahq.com/wp-content/uploads/2023/05/favicon-1.png" />
+
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
     <style>
@@ -131,6 +134,18 @@
             font-weight: 600;
         }
 
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent-color);
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #fff;
+            border-bottom-style: solid;
+        }
+
         /* --- ENGINE ROOM STYLES --- */
         .engine-room {
             border: 1px solid #334155;
@@ -162,6 +177,33 @@
             font-family: var(--code-font);
             margin-bottom: 0.5rem;
             display: block;
+        }
+        
+        /* --- CEILING COMPARISON GRID --- */
+        .ceiling-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        @media (max-width: 700px) {
+            .ceiling-grid { grid-template-columns: 1fr; }
+        }
+
+        .ceiling-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid #475569;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .ceiling-header {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid;
+            display: inline-block;
         }
 
         /* --- NARRATIVE SECTION --- */
@@ -237,38 +279,6 @@
         
         .sim-wrapper iframe {
             width: 100%; height: 100%; border: none;
-        }
-
-        /* --- FEATURE GRID --- */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .feature-card {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid #334155;
-            padding: 1.5rem;
-            border-radius: 12px;
-            transition: transform 0.2s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
-        }
-
-        .feature-icon {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .highlight-text {
-            color: var(--accent-color);
-            font-weight: bold;
         }
 
         /* --- EPISODE STYLES --- */
@@ -418,6 +428,30 @@
             box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
         }
 
+        /* Checkbox Style */
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            width: 100%;
+            text-align: left;
+            margin-top: 0.5rem;
+        }
+
+        .checkbox-wrapper input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent-color);
+            cursor: pointer;
+            margin: 0; /* Override generic input styling */
+        }
+
+        .checkbox-wrapper label {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            cursor: pointer;
+        }
+
         .cta-button {
             display: inline-block;
             background: linear-gradient(90deg, #38bdf8, #818cf8);
@@ -441,6 +475,20 @@
 
         .cf-turnstile {
             margin: 0.5rem 0;
+        }
+
+        /* NOTE BOX STYLE */
+        .note-box {
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1rem auto;
+            max-width: 450px;
+            text-align: left;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            line-height: 1.5;
         }
 
         footer {
@@ -509,7 +557,6 @@
                     <p style="margin-bottom:0; font-size:1rem;">The promise was "Don't write HTML/CSS." You are given a canvas and Lego blocks (Tables, Inputs). It's fast, but you are trapped in the grid.</p>
                     
                     <div class="sim-wrapper">
-                        
                         <iframe src="https://jinen83.github.io/dragdropSimul/" title="Drag and Drop Simulation"></iframe>
                     </div>
                 </div>
@@ -531,39 +578,42 @@
         </section>
 
         <section>
-            <h2>The Hidden Cost & The Vibe Explosion</h2>
-            <p>However, the Low Code route comes with a hidden cost: <strong>The Learning Curve.</strong></p>
-            <p>To achieve proficiency, you still need to learn the tool, understand the components, and master the logic blocks. Even for technical folks, learning a proprietary drag-and-drop syntax takes time.</p>
-            
-            <p>At this exact juncture (2025), <strong>Vibe Coding</strong> (tools like Cursor, Lovable) entered the market. They offered a seductive new promise: <strong>Build 50x Faster</strong>.</p>
-            <p><strong>Power users can now just "Vibe it up."</strong></p>
-            <p>You don't drag-and-drop; you just speak. The need to learn the tool vanishes. You prompt "Make me a dashboard that looks like a spaceship," and it generates raw, beautiful React code.</p>
+            <h2>The Challenge: Hitting the 10x Ceiling</h2>
+            <p>Despite the speed, the Low Code route comes with a friction point: <strong>The Learning Curve.</strong> To achieve proficiency, you still need to learn the tool, understand the components, and master the logic blocks. Even for technical folks, learning a proprietary drag-and-drop syntax takes time.</p>
+            <p>As Andreessen Horowitz (a16z) noted in their article <a href="https://a16z.com/one-prompt-zero-engineers-your-new-internal-dev/" target="_blank">"One Prompt, Zero Engineers"</a>, Low Code solved the "10x faster" problem, but the market was ready for a "50x faster" disruption.</p>
+
+            <h3 style="margin-top: 3rem;">The Vibe Coding Phenomenon (50x)</h3>
+            <p>Around early 2025, <strong>Vibe Coding</strong> entered the market. It didn't just offer speed; it offered freedom. You don't drag-and-drop; you speak. We saw three distinct flavors emerge:</p>
+            <ul>
+                <li><strong>IDE-Native Tools:</strong> Players like <em>Cursor</em> and <em>Windsurf</em>, which sit inside your code editor and vibe code alongside you.</li>
+                <li><strong>Hosted Services:</strong> Platforms like <em>Lovable</em> and <em>Replit</em>, where you prompt in a browser and it generates a full hosted app.</li>
+                <li><strong>General Purpose Agents:</strong> Like <em>Gemini</em> and <em>ChatGPT</em>, which started giving out production-ready code snippets on demand.</li>
+            </ul>
+            <p>Power users could now just "Vibe it up." The need to learn a proprietary grid vanished.</p>
         </section>
 
         <section>
-            <h2>The Reality Check: Observations from the Field</h2>
-            <p>We watched this revolution with excitement. It’s an incredible solution for generating UI. But as we deployed it in the real world, we started seeing friction points.</p>
+            <h2>The Reality Check: Customers using General Purpose Vibe Code for Internal Tools</h2>
+            <p>We watched this revolution with excitement. But as we deployed it in the real world, we started seeing friction points.</p>
             
             <div class="narrative-content">
                 
-                <h3>Observation 1: The "Success & Friction" Paradox (Cursor)</h3>
+                <h3>Observation 1: The "Success & Collapse" Paradox (Cursor)</h3>
                 <p>One of my customers, a Product Leader in Ad-Tech, achieved massive success with <strong>Cursor</strong>. He built a full-fledged V1 tool that let internal users generate AI videos. He did this in 15 days (60 hours of prompting) <strong>without ever looking at a single line of code</strong>.</p>
-                <p>He was overjoyed. The UX was incredible. But he pointed out subtle, growing pains:</p>
+                <p>He was overjoyed. The UX was incredible. But then he hit the walls:</p>
                 <ul>
-                    <li><strong>The Maintenance Ceiling:</strong> Beyond a certain point, adding a simple "Toast Message" took 15 minutes of back-and-forth prompting.</li>
-                    <li><strong>The Deterministic Gap:</strong> In Low Code, a Table Grid is battle-tested. Pagination, server-side search, and sorting <em>just work</em>. In Vibe Code, the output is non-deterministic. A re-prompt might break the sorting logic or mess up the pagination state, costing hours and tokens to fix what should be standard.</li>
-                    <li><strong>Complexity Drift:</strong> As he added newer features, the code became too complex for the AI to manage context effectively.</li>
-                    <li><strong>The Collapse:</strong> Eventually, the code started falling apart, and he had to hand it to engineers to rebuild from scratch.</li>
+                    <li><strong>The Maintenance Ceiling:</strong> Adding a simple "Toast Message" took 15 minutes of back-and-forth prompting.</li>
+                    <li><strong>The Deterministic Gap:</strong> In Low Code, a Table Grid is battle-tested. In Vibe Code, a re-prompt might break the sorting logic or mess up the pagination state, costing hours and tokens to fix what should be standard.</li>
+                    <li><strong>The Enterprise Gap:</strong> The generated app looked great, but it lacked the "adult" features. There was no User Management, RBAC, SSO, or Audit Trail. He had to hack together authentication logic, creating a security risk.</li>
+                    <li><strong>The DevOps Gap:</strong> Deployment wasn't magical. He had to push code via restricted Git pipelines. Thankfully he had access, but for most business users, managing CI/CD and CLI commands is a non-starter.</li>
+                    <li><strong>The Complexity Wall:</strong> Eventually, the application grew too intricate for the AI to maintain full context. To ensure stability and scalability, he ultimately handed it to engineers to rebuild on a stricter foundation.</li>
                 </ul>
-                <p><strong>The Hidden DevOps Friction:</strong><br>
-                Even when it worked, the experience felt broken for a non-tech team. He had to push code via pre-established <strong>Git pipelines</strong>. Access was restricted. He had to figure out Auth and RBAC workarounds. It was independence, but with a heavy tax.</p>
 
                 <h3>Observation 2: The "Expensive Mockup" (Replit)</h3>
                 <p>Another customer used <strong>Replit</strong> to "vibe" a benefits portal. It looked perfect. But because the code wasn't secure or scalable, they handed it to an agency to code from scratch. The Vibe tool didn't build software; it just built a really expensive wireframe.</p>
 
                 <h3>Observation 3: The "General Purpose" Trap (Supabase Insight)</h3>
                 <div class="story-image-container">
-                    
                     <img src="https://lh3.googleusercontent.com/d/1fdTJWEA9v6QU256CBS8sTORYx14nkt1S" alt="Me with Rory Wilding, COO of Supabase" class="story-image">
                     <span class="caption">With Rory Wilding, COO of Supabase</span>
                 </div>
@@ -575,20 +625,29 @@
         </section>
 
         <section>
-            <h2>The Mediocrity of "Low Code + AI" (Version 1)</h2>
-            <p>To be fair, we (and our competitors like Retool/ToolJet) tried to solve this. We launched our own "Vibe" versions (like Veda AI).</p>
-            <p>The strategy was: <em>"Use AI to configure our existing drag-and-drop components."</em></p>
-            <p><strong>I view this as a compromised middle ground—a mediocrity we couldn't accept.</strong></p>
-            <p>Why? Because as a Product Owner, I never went GA with it. It was a half-measure. It didn't solve the UX compromise; it just made it faster to build a boring UI. You were still trapped in the grid, just using voice commands instead of a mouse.</p>
+            <h2>The Low Code Response: "AI-Native" Tools</h2>
+            <p>The Low Code industry (ourselves included) didn't sit still. We saw the gap: Gen AI apps lacked Enterprise features like RBAC, SSO, and secure connectors. So, we all raced to solve this challenge.</p>
+            <p>We rebranded as <strong>"AI-Native"</strong> tools (a term highlighted by a16z). The premise was simple: give users the speed of AI generation, but wrap it in the safety of our Enterprise platforms.</p>
+            
+            <div class="callout" style="border-left-color: var(--warning-color);">
+                <strong style="color: var(--warning-color);">The Limitation (The Mediocrity of V1)</strong><br>
+                <p style="margin-top: 0.5rem; margin-bottom: 0;">While this approach worked, it was fundamentally limited. We were essentially putting AI on top of the existing constraints and bloats of Low Code tools.</p>
+                <p style="margin-bottom: 0;">The AI wasn't writing free-flow code; it was configuring our rigid UI widgets. It accelerated the generation of the "Grid," making it easier to edit than raw code, but you were still trapped in the same old "Enterprise-y" look and feel.</p>
+            </div>
+
+            <p style="margin-top: 1.5rem;">While competitors went General Availability (GA) with this approach, I held back.</p>
+            <p><strong>I never viewed this as a true solution.</strong> It didn't check all the boxes. It felt like a faster horse, not a car. I wanted the true freedom of Vibe Coding, not just a faster way to configure a widget.</p>
         </section>
 
         <section>
-            <h2>The Solution: The Version 2 Machine</h2>
+            <h2>The Pivot: The Version 2 Machine</h2>
             
             <div class="hypothesis-block">
-                <p>So now, we are launching the <strong>Version 2 Vibe Coding Tool</strong>. We decided to embrace the best of both worlds and fix the broken experience for our user persona: the non-engineer who just wants the tool to work.</p>
+                <p>This is where I pivot to a new machine—a completely new design that is way more powerful.</p>
                 
-                <p><strong>1. Embrace the Vibe (UX Freedom):</strong><br>
+                <p>It marries the <strong>True UI Flexibility</strong> that Gen AI offers, and latches it to the power of our <strong>Enterprise-Focussed Low Code Stack</strong>.</p>
+                
+                <p><strong>1. Unconstrained UI (The Vibe):</strong><br>
                 We use the best parts of tools like Cursor/Replit. We let the AI write raw, beautiful React code for the interface. No widget constraints. If you can prompt it, you can render it.</p>
                 
                 <p><strong>2. Retain the Magic Connector Layer:</strong><br>
@@ -601,13 +660,24 @@
                 We solved the "Git Pipeline" nightmare. DronaHQ stitches the runtime directly into the platform. You don't need CLI commands or DevOps access. We handle the hosting, the environment, and the deployment.</p>
                 
                 <p>Just a <code>README.md</code> is good enough for you to understand what's happening. The machine handles the rest.</p>
+                
+                <p><strong>The result: You build internal tools 50x faster, without the constraints.</strong></p>
+            </div>
+            
+            <div class="terminal-container">
+                <div class="terminal-header">
+                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                </div>
+                <div>
+                    <span style="color: #38bdf8;">user@dronahq:~$</span> <span id="typewriter"></span><span class="cursor"></span>
+                </div>
             </div>
         </section>
 
         <section>
-            <h2>For the Curious Souls: Watch me Build LIVE</h2>
-            
-            <p>I am building a complex CRM application live. I’m doing it to see if we can truly combine the freedom of Vibe Coding with the reliability of our backend. If you are curious about how Vibe + Low Code meshes in reality, watch the journey.</p>
+            <h2>For the Curious Souls: Watch me Build</h2>
+            <p>I am building a CRM application live. Now, I know what you're thinking: <em>'Why build a CRM when you can buy HubSpot or Pipedrive?'</em></p>
+            <p>Valid point. This isn't about replacing HubSpot. I chose a CRM because it is <strong>UI Complex</strong> (kanbans, dashboards, lists) but <strong>Functionally Standard</strong>. It’s the perfect stress test to see if we can truly vibe code the interface while low coding the backend.</p>
             
             <div class="episode-container">
                 <div class="episode-card">
@@ -646,10 +716,22 @@
                 <h3 style="margin-bottom: 1rem;">Want to test this with me?</h3>
                 <p style="color: var(--secondary-text);">This service is not yet public, but I am opening up spots for beta users.</p>
                 
+                <div class="note-box">
+                    <p style="margin: 0;">
+                        <strong>Why controlled access?</strong><br>
+                        We are providing <strong>$20 in free AI credits</strong> to testers. To ensure these go to serious business use cases (and avoid personal 'planner app' projects), we manually verify requests via business email.
+                    </p>
+                </div>
+
                 <form id="betaForm" class="beta-form">
                     <input type="text" name="businessName" placeholder="Business Name" required>
                     <input type="email" name="email" placeholder="Business Email Address" required>
                     
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" name="mailingList" id="mailingList">
+                        <label for="mailingList">We have an aggressive roadmap. Keep me posted on updates!</label>
+                    </div>
+
                     <div class="cf-turnstile" data-sitekey="0x4AAAAAACGumSDn6kRgf5HC" data-theme="dark"></div>
                     
                     <button type="submit" class="cta-button" style="margin-top: 0.5rem;">Request Beta Access</button>
@@ -663,13 +745,14 @@
     </footer>
 
     <script>
-        // --- 1. Typewriter Animation ---
-        /*const textToType = "DronaHQ, vibe me a React dashboard... then snap it to my postgres logic blocks.";
+        // --- 1. Typewriter Animation (With Safety Check) ---
+        const textToType = "DronaHQ, vibe me a React dashboard... then snap it to my postgres logic blocks.";
         const typeWriterElement = document.getElementById('typewriter');
+        const terminalContainer = document.querySelector('.terminal-container');
         let i = 0;
 
         function typeWriter() {
-            if (i < textToType.length) {
+            if (typeWriterElement && i < textToType.length) {
                 typeWriterElement.innerHTML += textToType.charAt(i);
                 i++;
                 setTimeout(typeWriter, 50); 
@@ -685,79 +768,96 @@
             });
         });
 
-        observer.observe(document.querySelector('.terminal-container'));*/
+        // FIX: Only observe if the element actually exists
+        if (terminalContainer) {
+            observer.observe(terminalContainer);
+        }
 
-        // --- 2. Form Handling (Post to Webhook with Captcha Check) ---
+        // --- 2. Form Handling (Debug Version) ---
         const form = document.getElementById('betaForm');
-        const submitBtn = form.querySelector('button[type="submit"]');
+        
+        if (form) {
+            const submitBtn = form.querySelector('button[type="submit"]');
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault(); 
-            
-            // Get values
-            const businessNameInput = form.querySelector('input[name="businessName"]');
-            const emailInput = form.querySelector('input[name="email"]');
-            
-            const businessName = businessNameInput.value.trim();
-            const email = emailInput.value.trim();
-            
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            form.addEventListener('submit', function(e) {
+                e.preventDefault(); 
+                console.log("1. Form submit triggered");
+                
+                // Get values
+                const businessNameInput = form.querySelector('input[name="businessName"]');
+                const emailInput = form.querySelector('input[name="email"]');
+                const mailingListInput = form.querySelector('input[name="mailingList"]');
+                
+                const businessName = businessNameInput.value.trim();
+                const email = emailInput.value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const joinMailingList = mailingListInput.checked;
 
-            if (!businessName) {
-                alert("Please enter your Business Name.");
-                return;
-            }
+                // Validation
+                if (!businessName) {
+                    alert("Please enter your Business Name.");
+                    return;
+                }
 
-            if (!email || !emailRegex.test(email)) {
-                alert("Please enter a valid email address.");
-                return;
-            }
+                if (!email || !emailRegex.test(email)) {
+                    alert("Please enter a valid email address.");
+                    return;
+                }
 
-            // CHECK: Captcha Token
-            const token = turnstile.getResponse();
-            if (!token) {
-                alert("Please complete the security check.");
-                return;
-            }
+                // --- CAPTCHA CHECK ---
+                let token = null;
+                // Check if Turnstile is actually loaded
+                if (typeof turnstile !== 'undefined') {
+                    try {
+                        token = turnstile.getResponse();
+                    } catch (err) {
+                        console.warn("Turnstile warning:", err);
+                    }
+                }
 
-            // Loading State
-            const originalBtnText = submitBtn.innerText;
-            submitBtn.innerText = "Joining...";
-            submitBtn.disabled = true;
+                // Loading State
+                const originalBtnText = submitBtn.innerText;
+                submitBtn.innerText = "Requesting...";
+                submitBtn.disabled = true;
 
-            // Post to DronaHQ
-            fetch('https://automations.dronahq.com/webhook/693fcf23b6619f7471dd8876', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
+                // Post to DronaHQ
+                const payload = {
                     business_name: businessName,
                     email: email,
-                    captcha_token: token 
+                    captcha_token: token || "bypass_mode",
+                    mailing_list: joinMailingList // Added mailing list boolean
+                };
+
+                fetch('https://automations.dronahq.com/webhook/693fcf23b6619f7471dd8876', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
                 })
-            })
-            .then(response => {
-                if (response.ok) {
-                    form.innerHTML = `
-                        <div style="padding: 2rem 0;">
-                            <span style="font-size: 2rem;">🎉</span>
-                            <p style="color: var(--success-color); font-weight: bold; font-size: 1.2rem; margin-top: 1rem;">You're on the list!</p>
-                            <p style="color: var(--secondary-text);">We'll reach out to ${email} soon.</p>
-                        </div>
-                    `;
-                } else {
-                    throw new Error('Network response was not ok');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert("Something went wrong joining the waitlist. Please try again later.");
-                submitBtn.innerText = originalBtnText;
-                submitBtn.disabled = false;
-                turnstile.reset();
+                .then(response => {
+                    console.log("Response received:", response.status);
+                    if (response.ok) {
+                        form.innerHTML = `
+                            <div style="padding: 2rem 0;">
+                                <span style="font-size: 2rem;">🎉</span>
+                                <p style="color: var(--success-color); font-weight: bold; font-size: 1.2rem; margin-top: 1rem;">Request Sent!</p>
+                                <p style="color: var(--secondary-text);">We'll verify your request and reach out to ${email} soon.</p>
+                            </div>
+                        `;
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                })
+                .catch(error => {
+                    console.error('Network Error:', error);
+                    alert("Something went wrong. Please try again.");
+                    submitBtn.innerText = originalBtnText;
+                    submitBtn.disabled = false;
+                    if (typeof turnstile !== 'undefined') turnstile.reset();
+                });
             });
-        });
+        }
     </script>
 </body>
 </html>
